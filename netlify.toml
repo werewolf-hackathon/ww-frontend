@@ -1,4 +1,4 @@
 [build]
   base = "werewolf/"
   publish = "werewolf/build"
-  command = "npm i yarn && yarn build"
+  command = "yarn build"
