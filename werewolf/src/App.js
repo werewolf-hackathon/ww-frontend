@@ -1,16 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { openChat, sendMessage } from './util/sockets';
+import React from 'react'
+import { connect } from 'react-redux'
+import { checkServer } from './actions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    this.props.checkServer()
+  }
+  render(){
+    return(
+      <>
+        
+      </>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  error: state.error
+})
+
+export default connect(
+  mapStateToProps,
+  { checkServer }
+)(App)
