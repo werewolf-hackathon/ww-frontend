@@ -1,0 +1,4 @@
+[build]
+  base = "werewolf/"
+  publish = "werewolf/build"
+  command = "yarn build"
