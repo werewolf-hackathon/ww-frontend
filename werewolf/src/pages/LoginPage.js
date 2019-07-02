@@ -1,10 +1,13 @@
 import React from 'react'
+import { NavBar, WerewolvesLogo, LoginForm } from '../components'
 
 function LoginPage() {
     return(
-        <>
-            Login
-        </>
+        <div style={{background: '', width: '100vw', height: '100vh'}}>
+            <NavBar />
+            <WerewolvesLogo />
+            <LoginForm />
+        </div>
     )
 }
 

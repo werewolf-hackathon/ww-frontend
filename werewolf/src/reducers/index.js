@@ -5,6 +5,8 @@ import {
 const initialState = {
     checkingServer: false,
     serverListening: false,
+    loggingIn: false, 
+    loggedIn: false,
     message: null,
     error: null
 }

@@ -13,7 +13,7 @@ class App extends React.Component {
     return(
       <>
         {this.props.error && <ErrorPage error={this.props.error} />}
-        {!this.props.error && 
+        {!this.props.error && this.props.serverListening &&
         <>
   
           <Route exact path="/" component={LoginPage} />
@@ -28,7 +28,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.error
+  error: state.error,
+  serverListening: state.serverListening
 })
 
 export default connect(

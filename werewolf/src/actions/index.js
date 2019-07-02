@@ -23,3 +23,34 @@ export const checkServer = () => dispatch => {
                 })
             })
 }
+
+export const LOGIN_START = 'LOGIN_START'
+export const LOGIN_ERROR = 'LOGIN_ERROR'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+
+export const login = creds => dispatch => {
+    dispatch({ type: LOGIN_START })
+    
+    axios
+        .post('https://ww-backend.herokuapp.com/', creds)
+        .then(res => {
+            console.log(res)
+            localStorage.setItem('token', res.data.user.token)
+            dispatch({
+                type: LOGIN_SUCCESS, 
+                payload: {
+                    message: res.data.message,
+                    user: {
+                        ...res.data.user
+                    }
+                }
+            })
+        })
+        .catch((err) => {
+            console.log(err.response.data)
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: `${err.response.data.message}`
+            })
+        })
+}
