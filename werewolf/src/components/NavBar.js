@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 function NavBar(props) {
     console.log(props.match.path)
@@ -10,9 +10,9 @@ function NavBar(props) {
                 Back
             </button>
             <div style={{width: '25vw', padding: '0 5vw', display: 'flex', justifyContent: 'space-between'}}>
-                <button>How To Play</button>
-                <button>Roles</button>
-                <button>Help</button>
+                <Link to="/howtoplay">How To Play</Link>
+                <Link to="/roles">Roles</Link>
+                <Link to="/help">Help</Link>
             </div>
         </div>
     )

@@ -54,3 +54,28 @@ export const login = creds => dispatch => {
             })
         })
 }
+
+export const SIGN_UP_START = 'SIGN_UP_START'
+export const SIGN_UP_ERROR = 'SIGN_UP_ERROR'
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
+
+export const signUp = creds => dispatch => {
+    dispatch({ type: SIGN_UP_START })
+    
+    return axios
+        .post('https://empathy-builder.herokuapp.com/api/auth/register', creds)
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: SIGN_UP_SUCCESS, 
+                payload: res.data.payload
+            })
+        })
+        .catch((err) => {
+            console.log(err.response.data)
+            dispatch({
+                type: SIGN_UP_ERROR,
+                payload: "Error signing up"
+            })
+        })
+}
