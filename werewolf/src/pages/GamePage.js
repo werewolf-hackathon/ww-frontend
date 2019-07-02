@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function GamePage() {
-    return(
-        <>
-            Game
-        </>
-    )
+  return <>Game</>;
 }
 
-export default GamePage
+export default GamePage;
