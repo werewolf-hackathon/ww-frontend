@@ -18,7 +18,8 @@ export const checkServer = () => dispatch => {
             .catch(err => {
                 console.log(err)
                 dispatch({
-                    type: CHECK_SERVER_ERROR
+                    type: CHECK_SERVER_ERROR,
+                    payload: "Server Error"
                 })
             })
 }
